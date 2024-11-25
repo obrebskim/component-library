@@ -1,0 +1,284 @@
+/* Reset styles */
+& *,
+& *::before,
+& *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main menu container */
+.menu {
+  position: relative;
+  height: 100%;
+  width: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  overflow: hidden;
+  padding: 2rem 1rem;
+  border-radius: var(--border-radius);
+  background-image: transparent;
+  transition: all var(--transition);
+  color: var(--button-font-color);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-grey);
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+}
+
+/* Open menu state */
+.menu.open {
+  width: 30rem;
+
+  &:before {
+    opacity: 1;
+  }
+
+  & .itemContent:hover {
+    background-color: rgba(var(--primary-rgb), 0.5);
+  }
+}
+
+/* Logo styles */
+.logo {
+  position: relative;
+  min-width: 4rem;
+  width: 6rem;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Menu list container */
+& .menuContainer {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* Menu item styles */
+.item {
+  height: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: height var(--transition);
+
+  &.open {
+    height: auto;
+  }
+
+  &.active {
+    background-image: var(--gradient-primary);
+  }
+}
+
+/* Item content styles */
+.itemContent {
+  height: 4rem;
+  min-width: max-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color var(--transition);
+  color: var(--font-color);
+
+  &.active {
+    background-image: var(--gradient-primary);
+    color: var(--button-font-color);
+
+    & svg {
+      color: var(--button-font-color);
+    }
+  }
+}
+
+.itemLabel {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding-inline: 0 1rem;
+}
+
+/* Button icon styles */
+.buttonIcon {
+  --size: 4rem;
+  position: relative;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  border: none;
+  overflow: hidden;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--primary-rgb), 0.5);
+    opacity: 0;
+    transition: opacity var(--transition);
+    z-index: 0;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline-color: var(--focus-color);
+  }
+
+  & svg {
+    z-index: 1;
+  }
+}
+
+/* Item controls (arrow icon) */
+.itemControls {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+/* Submenu styles */
+.submenu {
+  margin-left: 6rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(102, 102, 102, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.submenuItem {
+  position: relative;
+  height: 4rem;
+  min-width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-left: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--font-color);
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--primary-rgb), 0.5);
+    opacity: 0;
+    transition: opacity var(--transition);
+    z-index: 0;
+  }
+
+  & span {
+    z-index: 1;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  &.active {
+    background-image: var(--gradient-primary);
+    color: var(--button-font-color);
+  }
+}
+
+/* Logout button styles */
+.logoutButton {
+  position: relative;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  border: none;
+  color: var(--font-color);
+  background-color: transparent;
+  cursor: pointer;
+  padding-inline: 1rem;
+  transition:
+    background-color var(--transition),
+    scale var(--transition),
+    color var(--transition);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--gradient-invalid);
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+
+  & svg {
+    min-width: 2rem;
+    min-height: 2rem;
+    z-index: 1;
+  }
+
+  & span {
+    z-index: 1;
+  }
+
+  &:hover {
+    background-color: var(--invalid-color);
+    color: rgba(0, 0, 0, 0.87);
+
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    outline-color: var(--focus-color);
+  }
+
+  &:active {
+    scale: 0.98;
+    background-color: var(--invalid-color);
+  }
+}

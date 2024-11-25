@@ -1,0 +1,107 @@
+:root {
+  --font-color: rgba(0, 0, 0, 0.87);
+  --bg-color: #ffffff;
+  --box-shadow: 0 0 1.6rem 0 rgba(0, 0, 0, 0.5);
+  /* --focus-color: pink; */
+  --border-radius: 0.4rem;
+  --valid-color: rgb(102, 205, 141);
+  --invalid-color: tomato;
+  --primary-color: rgb(4, 134, 255);
+  --primary-rgb: 4, 134, 255;
+  --transition: 0.2s ease-in-out;
+
+  --gradient-primary-start: rgb(4, 134, 255);
+  --gradient-primary-end: rgb(0, 0, 224);
+  --gradient-primary: radial-gradient(
+    at top left,
+    var(--gradient-primary-start) 0%,
+    var(--gradient-primary-end) 70%
+  );
+
+  --gradient-grey-start: rgb(255, 255, 255);
+  --gradient-grey-end: rgb(240, 240, 240);
+  --gradient-grey: radial-gradient(
+    at top left,
+    var(--gradient-grey-start) 0%,
+    var(--gradient-grey-end) 70%
+  );
+
+  --gradient-invalid-start: rgb(255, 151, 104);
+  --gradient-invalid-end: rgb(253, 110, 27);
+  --gradient-invalid: radial-gradient(
+    at top left,
+    var(--gradient-invalid-start) 0%,
+    var(--gradient-invalid-end) 70%
+  );
+
+  --gradient-valid-start: rgb(0, 196, 139);
+  --gradient-valid-end: rgb(3, 153, 27);
+  --gradient-valid: radial-gradient(
+    at top left,
+    var(--gradient-valid-start) 0%,
+    var(--gradient-valid-end) 70%
+  );
+
+  /* GLOBALS */
+  color-scheme: light dark;
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  interpolate-size: allow-keywords;
+
+  /* BUTTON */
+  --button-font-color: rgb(255, 255, 255);
+
+  /* LIST */
+  --even-row-color: rgba(0, 0, 0, 0.07);
+
+  @media (prefers-color-scheme: dark) {
+    --bg-color: #242424;
+    --font-color: rgba(255, 255, 255, 0.8);
+
+    --even-row-color: rgba(255, 255, 255, 0.03);
+
+    --primary-color: rgb(141, 102, 205);
+    --primary-rgb: 141, 102, 205;
+
+    --gradient-primary-start: rgb(141, 102, 205);
+    --gradient-primary-end: rgb(146, 81, 250);
+
+    --gradient-grey-start: rgb(62, 62, 62);
+    --gradient-grey-end: rgb(54, 54, 54);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  padding: 2rem;
+}
+
+#root {
+  height: 100%;
+  overflow: auto;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}
